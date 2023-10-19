@@ -7,3 +7,4 @@ class SosState(StatesGroup):
 class AnswerState(StatesGroup):
     answer = State()
     submit = State()
+

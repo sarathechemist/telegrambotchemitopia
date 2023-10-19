@@ -6,6 +6,8 @@ class ProductState(StatesGroup):
     image = State()
     price = State()
     confirm = State()
-
+    unique_code = State()
+    shipping_price = State()  # Add this line
+    posting_price = State()
 class CategoryState(StatesGroup):
     title = State()

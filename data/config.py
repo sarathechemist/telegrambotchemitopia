@@ -1,6 +1,6 @@
-BOT_TOKEN = '**********:**************************'
+BOT_TOKEN = '6627993380:AAEqzlV-dLgo1v7fovSQFx85jHbNUsHKVLc'
 
-PROJECT_NAME = 'store-bot-example'
+PROJECT_NAME = 'chemitopia bot'
 
 WEBHOOK_HOST = f"https://{PROJECT_NAME}.herokuapp.com"
 WEBHOOK_PATH = '/webhook/' + BOT_TOKEN

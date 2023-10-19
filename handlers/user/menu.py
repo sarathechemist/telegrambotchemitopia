@@ -28,3 +28,20 @@ async def user_menu(message: Message):
     markup.add(delivery_status)
 
     await message.answer('Меню', reply_markup=markup)
+payment = '💳 Make Payment'
+
+@dp.message_handler(IsUser(), commands='menu')
+async def user_menu(message: Message):
+    markup = ReplyKeyboardMarkup(selective=True)
+    markup.add(catalog)
+    markup.add(balance, cart)
+    markup.add(delivery_status)
+    markup.add(payment)  # New menu item for payment
+
+    await message.answer('Меню', reply_markup=markup)
+    
+async def admin_menu(message: Message):
+    markup = ReplyKeyboardMarkup(selective=True)
+    markup.add(settings)
+    markup.add(questions, orders)  # Add orders here
+    await message.answer('Admin Menu', reply_markup=markup)

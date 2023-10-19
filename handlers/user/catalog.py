@@ -8,6 +8,7 @@ from aiogram.types.chat import ChatActions
 from loader import dp, db, bot
 from .menu import catalog
 from filters import IsUser
+from states import OrderState  # Add this line at the top if it's not there
 
 
 @dp.message_handler(IsUser(), text=catalog)
@@ -36,6 +37,8 @@ async def add_product_callback_handler(query: CallbackQuery, callback_data: dict
 
     await query.answer('Товар добавлен в корзину!')
     await query.message.delete()
+    await query.message.answer("Please enter your name:")
+    await OrderState.name.set()  # Assuming you've imported OrderState
 
 
 async def show_products(m, products):

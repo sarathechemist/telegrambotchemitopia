@@ -7,7 +7,7 @@ from states import SosState
 from filters import IsUser
 from loader import dp, db
 
-
+from states import SosState, ReceiptState  # Assuming you've created ReceiptState
 @dp.message_handler(commands='sos')
 async def cmd_sos(message: Message):
     await SosState.question.set()
@@ -52,3 +52,9 @@ async def process_submit(message: Message, state: FSMContext):
         await message.answer('Превышен лимит на количество задаваемых вопросов.', reply_markup=ReplyKeyboardRemove())
 
     await state.finish()
+
+
+@dp.message_handler(commands='sos')
+async def cmd_sos(message: Message):
+    await SosState.question.set()
+    await message.answer('В чем суть проблемы? Опишите как можно детальнее и администратор обязательно вам ответит.', reply_markup=ReplyKeyboardRemove())

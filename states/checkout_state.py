@@ -5,3 +5,14 @@ class CheckoutState(StatesGroup):
     name = State()
     address = State()
     confirm = State()
+    
+class ReceiptState(StatesGroup):
+    receipt = State()
+    
+class OrderState(StatesGroup):
+    name = State()
+    last_name = State()
+    phone_number = State()
+    post_address = State()
+class ReceiptState(StatesGroup):
+    receipt = State()
